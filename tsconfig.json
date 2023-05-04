@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "module": "NodeNext",
+      "esModuleInterop": true,
+      "target": "esnext",
+      "moduleResolution": "nodenext",
+      "sourceMap": true,
+      "outDir": "dist",
+      "resolveJsonModule": true,
+      "allowJs": true,
+      "baseUrl": ".",
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/*.test.ts"]
+}
+  

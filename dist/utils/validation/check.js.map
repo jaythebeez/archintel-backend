@@ -1,0 +1,1 @@
+{"version":3,"file":"check.js","sourceRoot":"","sources":["../../../src/utils/validation/check.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,eAAe,GAAG,CAAC,GAAW,EAAE,EAAE;IAC3C,IAAI;QACA,MAAM,MAAM,GAAG,IAAI,GAAG,CAAC,GAAG,CAAC,CAAC;QAC5B,OAAO,IAAI,CAAC;KACb;IAAC,MAAM;QACN,OAAO,KAAK,CAAC;KAChB;AACL,CAAC,CAAA"}
