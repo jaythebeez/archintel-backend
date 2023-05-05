@@ -12,11 +12,33 @@ export const addCompany = async (req, res, next) => {
         next(e);
     }
 };
+export const editCompany = async (req, res, next) => {
+    try {
+        const companyId = req.params.companyId;
+        const formData = req.body;
+        validateCompany(formData);
+        await CompanyModel.findByIdAndUpdate(companyId, { ...formData });
+        res.status(200).json({ ok: true });
+    }
+    catch (e) {
+        next(e);
+    }
+};
+export const deleteCompany = async (req, res, next) => {
+    try {
+        const companyId = req.params.companyId;
+        await CompanyModel.findByIdAndDelete(companyId);
+        res.status(200).json({ ok: true });
+    }
+    catch (e) {
+        next(e);
+    }
+};
 export const getAllCompanies = async (req, res, next) => {
     try {
         const companies = await CompanyModel.find();
         const companiesData = companies.map(item => { return { id: item.id, status: item.status, logo: item.logo, name: item.name }; });
-        res.status(200).json([companiesData]);
+        res.status(200).json([...companiesData]);
     }
     catch (e) {
         next(e);

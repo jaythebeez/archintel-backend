@@ -22,12 +22,6 @@ if (process.env.NODE_ENV !== 'test') {
 }
 // initialize express app
 const app = express();
-app.get('/accounts/auth/login', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Replace * with your domain name
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    // Your login route logic here
-});
 //apply express middleware
 app.use(cors({ credentials: true, origin: ["http://localhost:3000", "https://quizzer-647f9.web.app"] }));
 app.use(cookieParser());
