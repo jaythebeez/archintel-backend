@@ -40,7 +40,7 @@ export const login = async (req, res, next) => {
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
         res.cookie("token", token, { secure: false, sameSite: false, httpOnly: false });
         const { status, email: emailData, id, type, firstname, lastname } = user;
-        res.status(200).json({ status, email: emailData, type, firstname, lastname, id });
+        res.status(200).json({ status, email: emailData, type, firstname, lastname, id, token });
     }
     catch (e) {
         next(e);

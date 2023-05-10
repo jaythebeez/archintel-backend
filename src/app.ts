@@ -27,9 +27,9 @@ const app = express();
 
 // Set up a middleware to add the CORS headers
 app.use((req, res, next) => {
-    // Replace 'https://quizzer-647f9.web.app' with your actual origin
-    res.setHeader('Access-Control-Allow-Origin', 'https://quizzer-647f9.web.app');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Origin', 'https://quizzer-647f9.web.app');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
 

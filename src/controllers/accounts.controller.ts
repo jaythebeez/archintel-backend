@@ -58,7 +58,7 @@ export const login = async (req: Request, res:Response, next: NextFunction) => {
 
         const {status, email: emailData, id, type, firstname, lastname } = user;
 
-        res.status(200).json({status, email: emailData, type, firstname, lastname, id})
+        res.status(200).json({status, email: emailData, type, firstname, lastname, id, token})
 
     }catch(e){
         next(e)
