@@ -25,6 +25,14 @@ if (process.env.NODE_ENV !== 'test') {
 // initialize express app
 const app = express();
 
+// Set up a middleware to add the CORS headers
+app.use((req, res, next) => {
+    // Replace 'https://quizzer-647f9.web.app' with your actual origin
+    res.setHeader('Access-Control-Allow-Origin', 'https://quizzer-647f9.web.app');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
+
 //apply express middleware
 app.use(cors({ credentials: true, origin: ["http://localhost:3000", "https://quizzer-647f9.web.app", "https://quizzer-647f9.firebaseapp.com"] }));
 app.use(cookieParser());

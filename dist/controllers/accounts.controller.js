@@ -38,8 +38,6 @@ export const login = async (req, res, next) => {
         if (!match)
             throw new AuthenticationError("Password is not a match");
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Credentials', 'true');
         res.cookie("token", token, { secure: false, sameSite: false, httpOnly: false });
         const { status, email: emailData, id, type, firstname, lastname } = user;
         res.status(200).json({ status, email: emailData, type, firstname, lastname, id });
