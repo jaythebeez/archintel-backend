@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -25,16 +25,20 @@ if (process.env.NODE_ENV !== 'test') {
 // initialize express app
 const app = express();
 
-// Set up a middleware to add the CORS headers
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://quizzer-647f9.web.app');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
+app.use(function(req: Request, res: Response, next) {
+    res.header('Content-Type', 'application/json;charset=UTF-8')
+    res.header('Access-Control-Allow-Credentials', 'true')
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+    )
+    next()
+})
+
+app.set("trust proxy", 1);
 
 //apply express middleware
-app.use(cors({ credentials: true, origin: ["http://localhost:3000", "https://quizzer-647f9.web.app", "https://quizzer-647f9.firebaseapp.com"] }));
+app.use(cors({origin: true, credentials: true }))
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
