@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== 'test') {
 // initialize express app
 const app = express();
 //apply express middleware
-app.use(cors({ credentials: true, origin: ["http://localhost:3000", "https://quizzer-647f9.web.app"] }));
+app.use(cors({ credentials: true, origin: ["http://localhost:3000", "https://quizzer-647f9.web.app", "https://quizzer-647f9.firebaseapp.com"] }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
